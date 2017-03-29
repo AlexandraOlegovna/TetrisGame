@@ -20,6 +20,7 @@
 		CEF60F1E1E7713CC00AC4B4C /* TetrisGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF60F1D1E7713CC00AC4B4C /* TetrisGameTests.swift */; };
 		CEF60F291E7713CC00AC4B4C /* TetrisGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF60F281E7713CC00AC4B4C /* TetrisGameUITests.swift */; };
 		CEFD25B41E8C140600C6A1C2 /* SquareShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD25B31E8C140600C6A1C2 /* SquareShape.swift */; };
+		CEFD25B61E8C1BA500C6A1C2 /* Swiftris.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD25B51E8C1BA500C6A1C2 /* Swiftris.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		CEF60F281E7713CC00AC4B4C /* TetrisGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisGameUITests.swift; sourceTree = "<group>"; };
 		CEF60F2A1E7713CC00AC4B4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEFD25B31E8C140600C6A1C2 /* SquareShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareShape.swift; sourceTree = "<group>"; };
+		CEFD25B51E8C1BA500C6A1C2 /* Swiftris.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftris.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				CEF60F0C1E7713CC00AC4B4C /* Main.storyboard */,
 				CEF60F111E7713CC00AC4B4C /* LaunchScreen.storyboard */,
 				CEF60F141E7713CC00AC4B4C /* Info.plist */,
+				CEFD25B51E8C1BA500C6A1C2 /* Swiftris.swift */,
 				CE0DE5ED1E774D1900C6CD85 /* Array2D.swift */,
 				CE0DE5EF1E79B9DD00C6CD85 /* Block.swift */,
 				CE0DE5F11E79C7ED00C6CD85 /* Shape.swift */,
@@ -282,6 +285,7 @@
 				CEF60F091E7713CC00AC4B4C /* GameScene.swift in Sources */,
 				CE0DE5F21E79C7ED00C6CD85 /* Shape.swift in Sources */,
 				CE0DE5EE1E774D1900C6CD85 /* Array2D.swift in Sources */,
+				CEFD25B61E8C1BA500C6A1C2 /* Swiftris.swift in Sources */,
 				CE0DE5F01E79B9DD00C6CD85 /* Block.swift in Sources */,
 				CEF60F0B1E7713CC00AC4B4C /* GameViewController.swift in Sources */,
 				CEF60F031E7713CC00AC4B4C /* AppDelegate.swift in Sources */,
