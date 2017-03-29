@@ -19,6 +19,7 @@
 		CEF60F131E7713CC00AC4B4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF60F111E7713CC00AC4B4C /* LaunchScreen.storyboard */; };
 		CEF60F1E1E7713CC00AC4B4C /* TetrisGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF60F1D1E7713CC00AC4B4C /* TetrisGameTests.swift */; };
 		CEF60F291E7713CC00AC4B4C /* TetrisGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF60F281E7713CC00AC4B4C /* TetrisGameUITests.swift */; };
+		CEFD25B41E8C140600C6A1C2 /* SquareShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD25B31E8C140600C6A1C2 /* SquareShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		CEF60F241E7713CC00AC4B4C /* TetrisGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TetrisGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF60F281E7713CC00AC4B4C /* TetrisGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisGameUITests.swift; sourceTree = "<group>"; };
 		CEF60F2A1E7713CC00AC4B4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEFD25B31E8C140600C6A1C2 /* SquareShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				CE0DE5ED1E774D1900C6CD85 /* Array2D.swift */,
 				CE0DE5EF1E79B9DD00C6CD85 /* Block.swift */,
 				CE0DE5F11E79C7ED00C6CD85 /* Shape.swift */,
+				CEFD25B31E8C140600C6A1C2 /* SquareShape.swift */,
 			);
 			path = TetrisGame;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEFD25B41E8C140600C6A1C2 /* SquareShape.swift in Sources */,
 				CEF60F091E7713CC00AC4B4C /* GameScene.swift in Sources */,
 				CE0DE5F21E79C7ED00C6CD85 /* Shape.swift in Sources */,
 				CE0DE5EE1E774D1900C6CD85 /* Array2D.swift in Sources */,
