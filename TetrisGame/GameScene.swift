@@ -33,14 +33,14 @@ class GameScene: SKScene {
         super.init(size: size)
         anchorPoint = CGPoint(x: 0, y: 1.0)
         
-        let background = SKSpriteNode(imageNamed: "background")
+        let background = SKSpriteNode(imageNamed: "background.png")
         background.position = CGPoint(x: 0, y: 0)
         background.anchorPoint = CGPoint(x: 0, y: 1.0)
         addChild(background)
         
         addChild(gameLayer)
         
-        let gameBoardTexture = SKTexture(imageNamed: "gameboard")
+        let gameBoardTexture = SKTexture(imageNamed: "gameboard.png")
         let gameBoard = SKSpriteNode(texture: gameBoardTexture, size: CGSize(width: BlockSize * CGFloat(NumColumns), height: BlockSize * CGFloat(NumRows)))
         gameBoard.anchorPoint = CGPoint(x:0, y:1.0)
         gameBoard.position = LayerPosition
@@ -48,7 +48,14 @@ class GameScene: SKScene {
         shapeLayer.position = LayerPosition
         shapeLayer.addChild(gameBoard)
         gameLayer.addChild(shapeLayer)
+        
+        run(SKAction.repeatForever(SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true)))
     }
+    
+    func playSound(sound:String) {
+        run(SKAction.playSoundFileNamed(sound, waitForCompletion: false))
+    }
+    
     
     override func update(_ currentTime: CFTimeInterval) {
         guard let lastTick = lastTick else {
@@ -99,6 +106,54 @@ class GameScene: SKScene {
             sprite.run(SKAction.group([moveAction, fadeInAction]))
         }
         run(SKAction.wait(forDuration: 0.4), completion: completion)
+    }
+    
+    func animateCollapsingLines(linesToRemove: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>, completion:@escaping () -> ()) {
+        var longestDuration: TimeInterval = 0
+        for (columnIdx, column) in fallenBlocks.enumerated() {
+            for (blockIdx, block) in column.enumerated() {
+                let newPosition = pointForColumn(column: block.column, row: block.row)
+                let sprite = block.sprite!
+                let delay = (TimeInterval(columnIdx) * 0.05) + (TimeInterval(blockIdx) * 0.05)
+                let duration = TimeInterval(((sprite.position.y - newPosition.y) / BlockSize) * 0.1)
+                let moveAction = SKAction.move(to: newPosition, duration: duration)
+                moveAction.timingMode = .easeOut
+                sprite.run(
+                    SKAction.sequence([
+                        SKAction.wait(forDuration: delay),
+                        moveAction]))
+                longestDuration = max(longestDuration, duration + delay)
+            }
+        }
+        
+        for rowToRemove in linesToRemove {
+            for block in rowToRemove {
+                let randomRadius = CGFloat(UInt(arc4random_uniform(400) + 100))
+                let goLeft = (arc4random_uniform(100) % 2 == 0)
+                let dx = goLeft ? -randomRadius : randomRadius
+                
+                var point = pointForColumn(column: block.column, row: block.row)
+                point = CGPoint(x: point.x + dx, y: point.y)
+                
+                let randomDuration = TimeInterval(arc4random_uniform(2)) + 0.5
+                var startAngle = CGFloat(M_PI)
+                var endAngle = startAngle * 2
+                if goLeft {
+                    endAngle = startAngle
+                    startAngle = 0
+                }
+                let archPath = UIBezierPath(arcCenter: point, radius: randomRadius, startAngle: startAngle, endAngle: endAngle, clockwise: goLeft)
+                let archAction = SKAction.follow(archPath.cgPath, asOffset: false, orientToPath: true, duration: randomDuration)
+                archAction.timingMode = .easeIn
+                let sprite = block.sprite!
+                sprite.zPosition = 100
+                sprite.run(
+                    SKAction.sequence(
+                        [SKAction.group([archAction, SKAction.fadeOut(withDuration: TimeInterval(randomDuration))]),
+                         SKAction.removeFromParent()]))
+            }
+        }
+        run(SKAction.wait(forDuration: longestDuration), completion:completion)
     }
     
     func movePreviewShape(shape:Shape, completion:@escaping () -> ()) {
