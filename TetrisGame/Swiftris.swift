@@ -195,6 +195,7 @@ class Swiftris {
     
     func removeCompletedLines() -> (linesRemoved: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>) {
         var removedLines = Array<Array<Block>>()
+        var removedLinesRows = Array<Int>()
         for row in (1..<NumRows).reversed() {
             var rowOfBlocks = Array<Block>()
 
@@ -209,6 +210,7 @@ class Swiftris {
                 for block in rowOfBlocks {
                     blockArray[block.column, block.row] = nil
                 }
+                removedLinesRows.append(rowOfBlocks[0].row)
             }
         }
         
@@ -232,10 +234,11 @@ class Swiftris {
                 guard let block = blockArray[column, row] else {
                     continue
                 }
-                var newRow = row
-                while (newRow < NumRows - 1 && blockArray[column, newRow + 1] == nil) {
-                    newRow += 1
-                }
+                let newRow = row + removedLinesRows.count
+//                var newRow = row
+//                while (newRow < NumRows - 1 && blockArray[column, newRow + 1] == nil) {
+//                    newRow += 1
+//                }
                 block.row = newRow
                 blockArray[column, row] = nil
                 blockArray[column, newRow] = block
