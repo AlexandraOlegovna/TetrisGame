@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-let BlockSize:CGFloat = 20.0
+var BlockSize:CGFloat = 20.0
 
 let TickLengthLevelOne = TimeInterval(600)
 
@@ -17,12 +17,13 @@ class GameScene: SKScene {
     
     let gameLayer = SKNode()
     let shapeLayer = SKNode()
-    let LayerPosition = CGPoint(x: 6, y: -6)
+    var LayerPosition = CGPoint(x: 0, y: 0)
+    var nextShapeSize = CGSize(width: 0, height: 0)
     
     var tick:(() -> ())?
     var tickLengthMillis = TickLengthLevelOne
     var lastTick:NSDate?
-    
+
     var textureCache = Dictionary<String, SKTexture>()
     
     required init(coder aDecoder: NSCoder) {
@@ -31,12 +32,21 @@ class GameScene: SKScene {
     
     override init(size: CGSize) {
         super.init(size: size)
+    }
+    
+    convenience init(size: CGSize, header: CGSize) {
+        self.init(size: size)
+        BlockSize = (size.width) / CGFloat(NumColumns + 5)
+        LayerPosition = CGPoint(x: 6, y: -header.height / 2 - 10)
+        //print(header.height)
+        //print(size.height)
+        
         anchorPoint = CGPoint(x: 0, y: 1.0)
         
-        let background = SKSpriteNode(imageNamed: "background.png")
-        background.position = CGPoint(x: 0, y: 0)
-        background.anchorPoint = CGPoint(x: 0, y: 1.0)
-        addChild(background)
+//        let background = SKSpriteNode(imageNamed: "background.png")
+//        background.position = CGPoint(x: 0, y: 0)
+//        background.anchorPoint = CGPoint(x: 0, y: 1.0)
+//        addChild(background)
         
         addChild(gameLayer)
         
@@ -44,12 +54,18 @@ class GameScene: SKScene {
         let gameBoard = SKSpriteNode(texture: gameBoardTexture, size: CGSize(width: BlockSize * CGFloat(NumColumns), height: BlockSize * CGFloat(NumRows)))
         gameBoard.anchorPoint = CGPoint(x:0, y:1.0)
         gameBoard.position = LayerPosition
+//
         
         shapeLayer.position = LayerPosition
         shapeLayer.addChild(gameBoard)
         gameLayer.addChild(shapeLayer)
         
-        run(SKAction.repeatForever(SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true)))
+        
+//        CGPoint mypositionInScene 
+        //print(gameLayer.position)
+        //print(shapeLayer.position)
+        
+//        run(SKAction.repeatForever(SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true)))
     }
     
     func playSound(sound:String) {
@@ -84,13 +100,12 @@ class GameScene: SKScene {
     
     func addPreviewShapeToScene(shape:Shape, completion:@escaping () -> ()) {
         for block in shape.blocks {
-
             var texture = textureCache[block.spriteName]
             if texture == nil {
                 texture = SKTexture(imageNamed: block.spriteName)
                 textureCache[block.spriteName] = texture
             }
-            let sprite = SKSpriteNode(texture: texture)
+            let sprite = SKSpriteNode(texture: texture, size: CGSize(width: BlockSize, height: BlockSize))
             
             sprite.position = pointForColumn(column: block.column, row:block.row - 2)
             shapeLayer.addChild(sprite)
@@ -113,6 +128,7 @@ class GameScene: SKScene {
         for (columnIdx, column) in fallenBlocks.enumerated() {
             for (blockIdx, block) in column.enumerated() {
                 let newPosition = pointForColumn(column: block.column, row: block.row)
+                print(blockIdx, " / ", block)
                 let sprite = block.sprite!
                 let delay = (TimeInterval(columnIdx) * 0.05) + (TimeInterval(blockIdx) * 0.05)
                 let duration = TimeInterval(((sprite.position.y - newPosition.y) / BlockSize) * 0.1)

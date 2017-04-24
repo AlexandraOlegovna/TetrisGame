@@ -18,15 +18,19 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     
     var panPointReference:CGPoint?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Configure the view.
         let skView = view as! SKView
         skView.isMultipleTouchEnabled = false
         
         // Create and configure the scene.
-        scene = GameScene(size: skView.bounds.size)
+        //scene.nextShapeSize = nextShapePreview.bounds.size
+        scene = GameScene(size: skView.bounds.size, header: scoreLabel.bounds.size)
         scene.scaleMode = .aspectFill
         
         scene.tick = didTick
@@ -103,8 +107,8 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         return false
     }
     
-//    @IBOutlet weak var scoreLabel: UILabel!
-//    
+    @IBOutlet weak var scoreLabel: UILabel!
+//
 //    @IBOutlet weak var levelLable: UILabel!
     
     func didTick() {
@@ -125,7 +129,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     
     func gameDidBegin(swiftris: Swiftris) {
 //        levelLable.text = "\(swiftris.level)"
-//        scoreLabel.text = "\(swiftris.score)"
+        scoreLabel.text = "\(swiftris.score)"
 //        scene.tickLengthMillis = TickLengthLevelOne
         
         // The following is false when restarting a new game
@@ -147,8 +151,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
             swiftris.beginGame()
         }
     }
-    
-    
+
     func gameDidLevelUp(swiftris: Swiftris) {
 //        levelLable.text = "\(swiftris.level)"
         if scene.tickLengthMillis >= 100 {
@@ -174,7 +177,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         self.view.isUserInteractionEnabled = false
         let removedLines = swiftris.removeCompletedLines()
         if removedLines.linesRemoved.count > 0 {
-//            self.scoreLabel.text = "\(swiftris.score)"
+            self.scoreLabel.text = "\(swiftris.score)"
             scene.animateCollapsingLines(linesToRemove: removedLines.linesRemoved, fallenBlocks:removedLines.fallenBlocks) {
                 // #11
                 self.gameShapeDidLand(swiftris: swiftris)

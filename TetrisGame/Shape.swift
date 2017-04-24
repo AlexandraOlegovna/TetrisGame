@@ -44,10 +44,6 @@ enum Orientation: Int, CustomStringConvertible {
 
 let NumShapeTypes: UInt32 = 7
 
-let FirstBlockIdx: Int = 0
-let SecondBlockIdx: Int = 1
-let ThirdBlockIdx: Int = 2
-let FourthBlockIdx: Int = 3
 
 class Shape: Hashable, CustomStringConvertible {
     // The color of the shape
@@ -84,7 +80,7 @@ class Shape: Hashable, CustomStringConvertible {
     
     // CustomStringConvertible
     var description:String {
-        return "\(color) block facing \(orientation): \(blocks[FirstBlockIdx]), \(blocks[SecondBlockIdx]), \(blocks[ThirdBlockIdx]), \(blocks[FourthBlockIdx])"
+        return "\(color) block facing \(orientation): \(blocks[0]), \(blocks[1]), \(blocks[2]), \(blocks[3])"
     }
     
     init(column:Int, row:Int, color: BlockColor, orientation:Orientation) {
@@ -97,7 +93,7 @@ class Shape: Hashable, CustomStringConvertible {
     
     
     convenience init(column:Int, row:Int) {
-        self.init(column:column, row:row, color:BlockColor.random(), orientation:Orientation.random())
+        self.init(column:column, row:row, color:BlockColor.random(), orientation:Orientation.Zero)
     }
     
     final func initializeBlocks() {

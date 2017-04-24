@@ -29,10 +29,10 @@ class SquareShape:Shape {
 
     override var bottomBlocksForOrientations: [Orientation: Array<Block>] {
         return [
-            Orientation.Zero:       [blocks[ThirdBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.OneEighty:  [blocks[ThirdBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.Ninety:     [blocks[ThirdBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.TwoSeventy: [blocks[ThirdBlockIdx], blocks[FourthBlockIdx]]
+            Orientation.Zero:       [blocks[2], blocks[3]],
+            Orientation.OneEighty:  [blocks[2], blocks[3]],
+            Orientation.Ninety:     [blocks[2], blocks[3]],
+            Orientation.TwoSeventy: [blocks[2], blocks[3]]
         ]
     }
 }
@@ -67,19 +67,19 @@ class TShape:Shape {
     
     override var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
         return [
-            Orientation.Zero:       [(1, 0), (0, 1), (1, 1), (2, 1)],
-            Orientation.Ninety:     [(2, 1), (1, 0), (1, 1), (1, 2)],
-            Orientation.OneEighty:  [(1, 2), (0, 1), (1, 1), (2, 1)],
-            Orientation.TwoSeventy: [(0, 1), (1, 0), (1, 1), (1, 2)]
+            Orientation.Zero:       [(0, 1), (1, 0), (1, 1), (1, 2)],
+            Orientation.Ninety:     [(1, 0), (0, 1), (1, 1), (2, 1)],
+            Orientation.OneEighty:  [(2, 1), (1, 0), (1, 1), (1, 2)],
+            Orientation.TwoSeventy: [(1, 2), (0, 1), (1, 1), (2, 1)]
         ]
     }
     
     override var bottomBlocksForOrientations: [Orientation: Array<Block>] {
         return [
-            Orientation.Zero:       [blocks[SecondBlockIdx], blocks[ThirdBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.Ninety:     [blocks[FirstBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.OneEighty:  [blocks[FirstBlockIdx], blocks[SecondBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.TwoSeventy: [blocks[FirstBlockIdx], blocks[FourthBlockIdx]]
+            Orientation.Zero:       [blocks[0], blocks[3]],
+            Orientation.Ninety:     [blocks[1], blocks[2], blocks[3]],
+            Orientation.OneEighty:  [blocks[0], blocks[3]],
+            Orientation.TwoSeventy: [blocks[0], blocks[1], blocks[3]]
         ]
     }
 }
@@ -114,9 +114,9 @@ class LineShape:Shape {
     
     override var bottomBlocksForOrientations: [Orientation: Array<Block>] {
         return [
-            Orientation.Zero:       [blocks[FourthBlockIdx]],
+            Orientation.Zero:       [blocks[3]],
             Orientation.Ninety:     blocks,
-            Orientation.OneEighty:  [blocks[FourthBlockIdx]],
+            Orientation.OneEighty:  [blocks[3]],
             Orientation.TwoSeventy: blocks
         ]
     }
@@ -165,10 +165,10 @@ class LShape:Shape {
     
     override var bottomBlocksForOrientations: [Orientation: Array<Block>] {
         return [
-            Orientation.Zero:       [blocks[ThirdBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.Ninety:     [blocks[FirstBlockIdx], blocks[SecondBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.OneEighty:  [blocks[FirstBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.TwoSeventy: [blocks[FirstBlockIdx], blocks[SecondBlockIdx], blocks[ThirdBlockIdx]]
+            Orientation.Zero:       [blocks[2], blocks[3]],
+            Orientation.Ninety:     [blocks[0], blocks[1], blocks[3]],
+            Orientation.OneEighty:  [blocks[0], blocks[3]],
+            Orientation.TwoSeventy: [blocks[0], blocks[1], blocks[2]]
         ]
     }
 }
@@ -215,10 +215,10 @@ class JShape:Shape {
     
     override var bottomBlocksForOrientations: [Orientation: Array<Block>] {
         return [
-            Orientation.Zero:       [blocks[ThirdBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.Ninety:     [blocks[FirstBlockIdx], blocks[SecondBlockIdx], blocks[ThirdBlockIdx]],
-            Orientation.OneEighty:  [blocks[FirstBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.TwoSeventy: [blocks[FirstBlockIdx], blocks[SecondBlockIdx], blocks[FourthBlockIdx]]
+            Orientation.Zero:       [blocks[2], blocks[3]],
+            Orientation.Ninety:     [blocks[0], blocks[1], blocks[2]],
+            Orientation.OneEighty:  [blocks[0], blocks[3]],
+            Orientation.TwoSeventy: [blocks[0], blocks[1], blocks[3]]
         ]
     }
 }
@@ -263,10 +263,10 @@ class SShape:Shape {
     
     override var bottomBlocksForOrientations: [Orientation: Array<Block>] {
         return [
-            Orientation.Zero:       [blocks[SecondBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.Ninety:     [blocks[FirstBlockIdx], blocks[ThirdBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.OneEighty:  [blocks[SecondBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.TwoSeventy: [blocks[FirstBlockIdx], blocks[ThirdBlockIdx], blocks[FourthBlockIdx]]
+            Orientation.Zero:       [blocks[1], blocks[3]],
+            Orientation.Ninety:     [blocks[0], blocks[2], blocks[3]],
+            Orientation.OneEighty:  [blocks[1], blocks[3]],
+            Orientation.TwoSeventy: [blocks[0], blocks[2], blocks[3]]
         ]
     }
 }
@@ -312,10 +312,10 @@ class ZShape:Shape {
     
     override var bottomBlocksForOrientations: [Orientation: Array<Block>] {
         return [
-            Orientation.Zero:       [blocks[SecondBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.Ninety:     [blocks[FirstBlockIdx], blocks[ThirdBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.OneEighty:  [blocks[SecondBlockIdx], blocks[FourthBlockIdx]],
-            Orientation.TwoSeventy: [blocks[FirstBlockIdx], blocks[ThirdBlockIdx], blocks[FourthBlockIdx]]
+            Orientation.Zero:       [blocks[1], blocks[3]],
+            Orientation.Ninety:     [blocks[0], blocks[2], blocks[3]],
+            Orientation.OneEighty:  [blocks[1], blocks[3]],
+            Orientation.TwoSeventy: [blocks[0], blocks[2], blocks[3]]
         ]
     }
 }
