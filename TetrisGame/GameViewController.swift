@@ -18,7 +18,9 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     
     var panPointReference:CGPoint?
     
-    
+//    override func loadView() {
+//        self.view = SKView(frame: CGRect(x: 0, y: 0, width: 320, height: 480))
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,8 +110,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     }
     
     @IBOutlet weak var scoreLabel: UILabel!
-//
-//    @IBOutlet weak var levelLable: UILabel!
+    
     
     func didTick() {
         swiftris.letShapeFall()
@@ -179,6 +180,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         if removedLines.linesRemoved.count > 0 {
             self.scoreLabel.text = "\(swiftris.score)"
             scene.animateCollapsingLines(linesToRemove: removedLines.linesRemoved, fallenBlocks:removedLines.fallenBlocks) {
+                // #11
                 self.gameShapeDidLand(swiftris: swiftris)
             }
             scene.playSound(sound: "bomb.mp3")
@@ -191,5 +193,32 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func gameShapeDidMove(swiftris: Swiftris) {
         scene.redrawShape(shape: swiftris.fallingShape!) {}
     }
+    
+    @IBOutlet weak var header: UIView!
+    @IBOutlet weak var pauseView: UIView!
+    
+    @IBOutlet var panG: UIPanGestureRecognizer!
+    @IBOutlet var swipeG: UISwipeGestureRecognizer!
+    @IBOutlet var tapG: UITapGestureRecognizer!
+    @IBAction func clickPause(_ sender: UIButton) {
+        header.isHidden = true
+        pauseView.isHidden = false
+        scene.isPaused = true
+        scene.stopTicking()
+        panG.isEnabled = false;
+        swipeG.isEnabled = false;
+        tapG.isEnabled = false;
+    }
+    
+    @IBAction func continueClick(_ sender: UIButton) {
+        header.isHidden = false
+        pauseView.isHidden = true
+        scene.isPaused = false
+        scene.startTicking()
+        panG.isEnabled = true;
+        swipeG.isEnabled = true;
+        tapG.isEnabled = true;
+    }
+    
     
 }

@@ -26,6 +26,8 @@ class GameScene: SKScene {
 
     var textureCache = Dictionary<String, SKTexture>()
     
+    var sceneSize = CGSize(width: 0, height: 0)
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoder not supported")
     }
@@ -36,6 +38,7 @@ class GameScene: SKScene {
     
     convenience init(size: CGSize, header: CGSize) {
         self.init(size: size)
+        sceneSize = size
         BlockSize = (size.width) / CGFloat(NumColumns + 5)
         LayerPosition = CGPoint(x: 6, y: -header.height / 2 - 10)
         //print(header.height)
@@ -197,4 +200,49 @@ class GameScene: SKScene {
             }
         }
     }
-}
+    
+    
+//    private let continueButton = SKSpriteNode(color: SKColor(red:1.0, green:1.0, blue:1.0, alpha: 1.0), size: CGSize(width: 100, height: 20))
+    private var pauseLayer = SKSpriteNode(color: SKColor(red:0.30, green:0.81, blue:0.89, alpha:0.5), size: CGSize(width: 0, height: 0))
+    
+    //Track finger movement based on touches
+//    private var p1Touch : UITouch?
+//    private var p2Touch : UITouch?
+//    
+    
+    func makePause(){
+        pauseLayer.size = sceneSize
+        self.stopTicking()
+        pauseLayer.position = CGPoint(x: 0, y: 0)
+        pauseLayer.anchorPoint = CGPoint(x: 0, y: 1.0)
+        addChild(pauseLayer)
+    }
+    
+//    func 
+        
+//        let continueButtonTexture = SKTexture(
+//        let continueButton = SKSpriteNode(color: SKColor(red:1.0, green:1.0, blue:1.0, alpha: 1.0), size: CGSize(width: 100, height: 100))
+//        continueButton.anchorPoint = CGPoint(x:0, y:1.0)
+//        continueButton.position = CGPoint(x: 10.0, y: -10.0)
+//        addChild(continueButton)
+    }
+    
+    
+//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let touch = touches.first {
+//            touchEndedAtPoint(touch: touch)
+//        }
+//    }
+    
+//    func touchEndedAtPoint(touch: UITouch) {
+//        let point = touch.location(in: self)
+//        
+//        if continueButton.contains(point) {
+////            continueButton.removeFromParent()
+//            pauseLayer.removeFromParent()
+//            self.startTicking()
+//            self.isPaused = false
+//        }else
+//        { print("else test")}
+//    }
+
