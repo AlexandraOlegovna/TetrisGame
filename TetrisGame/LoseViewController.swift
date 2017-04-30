@@ -21,6 +21,10 @@ class LoseViewController: UIViewController {
     @IBOutlet weak var currentScoreLabel: UILabel!
     @IBOutlet weak var bestScoreLabel: UILabel!
     
+    
+    @IBOutlet weak var textLabelBestScore: UILabel!
+    @IBOutlet weak var textLabelYourScore: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,13 +41,28 @@ class LoseViewController: UIViewController {
         //delete savings
         def.removeObject(forKey: "currentScore")
         def.removeObject(forKey: "blockArray")
+        
+        //change character spacing
+        changeCharacterSpace(label: textLabelYourScore)
+        changeCharacterSpace(label: textLabelBestScore)
+        
     }
 
+    func changeCharacterSpace(label: UILabel){
+        let attributedString = NSMutableAttributedString(string: label.text!)
+        attributedString.addAttribute(NSKernAttributeName, value: 2.00, range: NSRange(location: 0, length: attributedString.length - 1))
+        label.attributedText = attributedString
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    override var prefersStatusBarHidden : Bool {
+        return true
+    }
 
     /*
     // MARK: - Navigation
