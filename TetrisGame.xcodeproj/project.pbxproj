@@ -11,6 +11,7 @@
 		CE0DE5F01E79B9DD00C6CD85 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0DE5EF1E79B9DD00C6CD85 /* Block.swift */; };
 		CE0DE5F21E79C7ED00C6CD85 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0DE5F11E79C7ED00C6CD85 /* Shape.swift */; };
 		CE18DED71EB52A670061AED8 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE18DED61EB52A670061AED8 /* StartViewController.swift */; };
+		CE463E0B1EB603DB006B4A96 /* LoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE463E0A1EB603DB006B4A96 /* LoseViewController.swift */; };
 		CEF60F031E7713CC00AC4B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF60F021E7713CC00AC4B4C /* AppDelegate.swift */; };
 		CEF60F091E7713CC00AC4B4C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF60F081E7713CC00AC4B4C /* GameScene.swift */; };
 		CEF60F0B1E7713CC00AC4B4C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF60F0A1E7713CC00AC4B4C /* GameViewController.swift */; };
@@ -69,6 +70,7 @@
 		CE0DE5EF1E79B9DD00C6CD85 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		CE0DE5F11E79C7ED00C6CD85 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		CE18DED61EB52A670061AED8 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		CE463E0A1EB603DB006B4A96 /* LoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoseViewController.swift; sourceTree = "<group>"; };
 		CEF60EFF1E7713CC00AC4B4C /* TetrisGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TetrisGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF60F021E7713CC00AC4B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF60F081E7713CC00AC4B4C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				CEF60F081E7713CC00AC4B4C /* GameScene.swift */,
 				CEF60F0A1E7713CC00AC4B4C /* GameViewController.swift */,
 				CE18DED61EB52A670061AED8 /* StartViewController.swift */,
+				CE463E0A1EB603DB006B4A96 /* LoseViewController.swift */,
 				CEFD26651EAE387800C6A1C2 /* Main.storyboard */,
 				CEF60F111E7713CC00AC4B4C /* LaunchScreen.storyboard */,
 				CEFD25B51E8C1BA500C6A1C2 /* Swiftris.swift */,
@@ -410,6 +413,7 @@
 				CEFD25B41E8C140600C6A1C2 /* SquareShape.swift in Sources */,
 				CEF60F091E7713CC00AC4B4C /* GameScene.swift in Sources */,
 				CE0DE5F21E79C7ED00C6CD85 /* Shape.swift in Sources */,
+				CE463E0B1EB603DB006B4A96 /* LoseViewController.swift in Sources */,
 				CE0DE5EE1E774D1900C6CD85 /* Array2D.swift in Sources */,
 				CEFD25B61E8C1BA500C6A1C2 /* Swiftris.swift in Sources */,
 				CE18DED71EB52A670061AED8 /* StartViewController.swift in Sources */,

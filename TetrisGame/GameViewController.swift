@@ -160,8 +160,11 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         
         scene.playSound(sound: "gameover.mp3")
         scene.animateCollapsingLines(linesToRemove: swiftris.removeAllBlocks(), fallenBlocks: swiftris.removeAllBlocks()) {
-            swiftris.beginGame()
+//            swiftris.beginGame()
         }
+        let controller = storyboard?.instantiateViewController(withIdentifier: "Lose") as! LoseViewController
+        controller.currentScore = swiftris.score
+        present(controller, animated: false, completion: nil)
     }
 
     func gameDidLevelUp(swiftris: Swiftris) {
