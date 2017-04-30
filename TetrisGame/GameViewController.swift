@@ -36,8 +36,17 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.scaleMode = .aspectFill
         
         scene.tick = didTick
+        if (swiftris == nil){
+            swiftris = Swiftris()
+        }
         
-        swiftris = Swiftris()
+        //render existing blocks
+        for block in swiftris.blockArray.array{
+            if (block != nil){
+                scene.addBlockSprite(block: block!)
+            }
+        }
+        
         swiftris.delegate = self
         swiftris.beginGame()
         
@@ -45,6 +54,8 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         skView.presentScene(scene)
         
     }
+    
+//    func 
     
     override var shouldAutorotate: Bool {
         return false
@@ -220,5 +231,28 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         tapG.isEnabled = true;
     }
     
+    enum UserDefaultsKeys: String {
+        case blockCategory
+    }
+    
+    @IBAction func menuClick(_ sender: UIButton) {
+        let def = UserDefaults.standard
+//        let x:(Int, Int) = (1,2)
+        var boardScheme = [String]()
+        for block in swiftris.blockArray.array{
+            if (block != nil){
+                boardScheme.append("\(block!.column) " +  "\(block!.row) " + "\(block!.color.rawValue)")
+            }
+        }
+        
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: boardScheme)
+        def.set(encodedData, forKey: "blockArray")
+        def.set(self.swiftris.score, forKey: "currentScore")
+        
+        def.synchronize()
+        
+        let controller = storyboard?.instantiateViewController(withIdentifier: "Start") as! StartViewController
+        present(controller, animated: false, completion: nil)
+    }
     
 }

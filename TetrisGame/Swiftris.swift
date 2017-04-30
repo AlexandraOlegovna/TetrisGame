@@ -52,9 +52,6 @@ class Swiftris {
         fallingShape = nil
         nextShape = nil
         blockArray = Array2D<Block>(columns: NumColumns, rows: NumRows)
-//        for k in 0 ..< blockArray.columns {
-//            blockArray[k, 19] = Block(column: 0, row: 0, color: BlockColor.Blue)
-//        }
     }
     
     func beginGame() {

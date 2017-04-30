@@ -40,9 +40,12 @@
                                         <rect key="frame" x="152.5" y="376" width="110" height="38.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Exit">
+                                        <state key="normal" title="Menu">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="menuClick:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YlU-l1-wgO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.51849144697189331" green="0.91202777624130249" blue="0.8519396185874939" alpha="0.72399400684931503" colorSpace="custom" customColorSpace="sRGB"/>

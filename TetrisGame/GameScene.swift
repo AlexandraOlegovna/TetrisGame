@@ -101,20 +101,27 @@ class GameScene: SKScene {
         return CGPoint(x: x, y: y)
     }
     
+    
+    func addBlockSprite(block: Block){
+        var texture = textureCache[block.spriteName]
+        if texture == nil {
+            texture = SKTexture(imageNamed: block.spriteName)
+            textureCache[block.spriteName] = texture
+        }
+        let sprite = SKSpriteNode(texture: texture, size: CGSize(width: BlockSize, height: BlockSize))
+        
+        sprite.position = pointForColumn(column: block.column, row:block.row)
+        shapeLayer.addChild(sprite)
+        block.sprite = sprite
+    }
+    
+    
     func addPreviewShapeToScene(shape:Shape, completion:@escaping () -> ()) {
         for block in shape.blocks {
-            var texture = textureCache[block.spriteName]
-            if texture == nil {
-                texture = SKTexture(imageNamed: block.spriteName)
-                textureCache[block.spriteName] = texture
-            }
-            let sprite = SKSpriteNode(texture: texture, size: CGSize(width: BlockSize, height: BlockSize))
-            
-            sprite.position = pointForColumn(column: block.column, row:block.row - 2)
-            shapeLayer.addChild(sprite)
-            block.sprite = sprite
+            addBlockSprite(block: block)
             
             // Animation
+            let sprite = block.sprite!
             sprite.alpha = 0
 
             let moveAction = SKAction.move(to: pointForColumn(column: block.column, row: block.row), duration: TimeInterval(0.2))
