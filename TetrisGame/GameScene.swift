@@ -11,7 +11,7 @@ import GameplayKit
 
 var BlockSize:CGFloat = 20.0
 
-let TickLengthLevelOne = TimeInterval(600)
+
 
 class GameScene: SKScene {
     
@@ -21,7 +21,7 @@ class GameScene: SKScene {
     var nextShapeSize = CGSize(width: 0, height: 0)
     
     var tick:(() -> ())?
-    var tickLengthMillis = TickLengthLevelOne
+    var tickLengthMillis = TimeInterval(600)
     var lastTick:NSDate?
 
     var textureCache = Dictionary<String, SKTexture>()

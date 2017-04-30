@@ -140,9 +140,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     }
     
     func gameDidBegin(swiftris: Swiftris) {
-//        levelLable.text = "\(swiftris.level)"
         scoreLabel.text = "\(swiftris.score)"
-//        scene.tickLengthMillis = TickLengthLevelOne
         
         // The following is false when restarting a new game
         if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
@@ -167,15 +165,6 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         present(controller, animated: false, completion: nil)
     }
 
-    func gameDidLevelUp(swiftris: Swiftris) {
-//        levelLable.text = "\(swiftris.level)"
-        if scene.tickLengthMillis >= 100 {
-            scene.tickLengthMillis -= 100
-        } else if scene.tickLengthMillis > 50 {
-            scene.tickLengthMillis -= 50
-        }
-        scene.playSound(sound: "levelup.mp3")
-    }
     
     func gameShapeDidDrop(swiftris: Swiftris) {
         scene.stopTicking()

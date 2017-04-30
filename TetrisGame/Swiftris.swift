@@ -16,7 +16,6 @@ let PreviewColumn = 12
 let PreviewRow = 1
 
 let PointsPerLine = 10
-let LevelThreshold = 500
 
 
 protocol SwiftrisDelegate {
@@ -35,8 +34,6 @@ protocol SwiftrisDelegate {
     // Invoked when the falling shape has changed its location after being dropped
     func gameShapeDidDrop(swiftris: Swiftris)
     
-    // Invoked when the game has reached a new level
-    func gameDidLevelUp(swiftris: Swiftris)
 }
 
 class Swiftris {
@@ -46,7 +43,6 @@ class Swiftris {
     var delegate:SwiftrisDelegate?
     
     var score = 0
-    var level = 1
     
     init() {
         fallingShape = nil
@@ -186,7 +182,6 @@ class Swiftris {
     
     func endGame() {
 //        score = 0
-//        level = 1
         delegate?.gameDidEnd(swiftris: self)
     }
     
@@ -216,12 +211,8 @@ class Swiftris {
             return ([], [])
         }
 
-        let pointsEarned = removedLines.count * PointsPerLine * level
+        let pointsEarned = removedLines.count * PointsPerLine
         score += pointsEarned
-        if score >= level * LevelThreshold {
-            level += 1
-            delegate?.gameDidLevelUp(swiftris: self)
-        }
         
         var fallenBlocks = Array<Array<Block>>()
         for column in 0..<NumColumns {
