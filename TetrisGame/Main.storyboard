@@ -159,7 +159,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Nokian" family="Nokian" pointSize="46"/>
                                         <state key="normal" title="New Game">
-                                            <color key="titleColor" red="0.44809334560000003" green="0.92361111110000005" blue="0.31730202210000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="startClick:" destination="goI-Pj-Hd8" eventType="touchUpInside" id="xuN-2U-iSP"/>
@@ -170,7 +170,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Nokian" family="Nokian" pointSize="46"/>
                                         <state key="normal" title="Continue">
-                                            <color key="titleColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="continueClick:" destination="goI-Pj-Hd8" eventType="touchUpInside" id="FKT-Gw-1uW"/>
@@ -182,6 +182,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="continueButton" destination="492-p5-e1L" id="WtM-jK-wV8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6tb-89-63I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

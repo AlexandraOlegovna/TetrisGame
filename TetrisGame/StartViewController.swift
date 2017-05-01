@@ -17,25 +17,19 @@ class StartViewController: UIViewController {
     }
     
     func startNewGame(){
+        let def = UserDefaults.standard
+        //delete savings
+        def.removeObject(forKey: "currentScore")
+        def.removeObject(forKey: "blockArray")
+        
         let controller = storyboard?.instantiateViewController(withIdentifier: "Game") as! GameViewController
         present(controller, animated: false, completion: nil)
     }
     
     
     @IBAction func continueClick(_ sender: UIButton) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "Game") as! GameViewController
-        let def = UserDefaults.standard
-        var boardScheme = [String]()
-        if let decoded = def.object(forKey: "blockArray") as? NSData {
-            let array = NSKeyedUnarchiver.unarchiveObject(with: decoded as Data) as! [String]
-            boardScheme = array
-        }
-        let score = def.integer(forKey: "currentScore")
-        guard (score != 0) || (!boardScheme.isEmpty) else
-        {
-            return startNewGame()
-        }
         
+        let controller = storyboard?.instantiateViewController(withIdentifier: "Game") as! GameViewController
         controller.swiftris = Swiftris()
         controller.swiftris.score = score
         
@@ -51,9 +45,23 @@ class StartViewController: UIViewController {
         
     }
     
+    var boardScheme = [String]()
+    var score = 0
     
+    @IBOutlet weak var continueButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        continueButton.setTitleColor(.green, for: .normal)
+        continueButton.setTitleColor(.gray, for: .disabled);
+        
+        let def = UserDefaults.standard
+        
+        if let decoded = def.object(forKey: "blockArray") as? NSData {
+            let array = NSKeyedUnarchiver.unarchiveObject(with: decoded as Data) as! [String]
+            boardScheme = array
+        }
+        score = def.integer(forKey: "currentScore")
+        continueButton.isEnabled = !((score == 0) && (boardScheme.isEmpty))
 
     }
     
