@@ -71,10 +71,6 @@ class GameScene: SKScene {
 //        run(SKAction.repeatForever(SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true)))
     }
     
-    func playSound(sound:String) {
-        run(SKAction.playSoundFileNamed(sound, waitForCompletion: false))
-    }
-    
     
     override func update(_ currentTime: CFTimeInterval) {
         guard let lastTick = lastTick else {

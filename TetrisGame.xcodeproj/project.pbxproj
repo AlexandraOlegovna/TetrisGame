@@ -28,10 +28,6 @@
 		CEFD264D1E9AF24D00C6A1C2 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFD26321E9AF24D00C6A1C2 /* background@2x.png */; };
 		CEFD264E1E9AF24D00C6A1C2 /* gameboard.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFD26331E9AF24D00C6A1C2 /* gameboard.png */; };
 		CEFD264F1E9AF24D00C6A1C2 /* gameboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFD26341E9AF24D00C6A1C2 /* gameboard@2x.png */; };
-		CEFD26521E9AF24D00C6A1C2 /* bomb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEFD26381E9AF24D00C6A1C2 /* bomb.mp3 */; };
-		CEFD26531E9AF24D00C6A1C2 /* drop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEFD26391E9AF24D00C6A1C2 /* drop.mp3 */; };
-		CEFD26541E9AF24D00C6A1C2 /* gameover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEFD263A1E9AF24D00C6A1C2 /* gameover.mp3 */; };
-		CEFD26551E9AF24D00C6A1C2 /* levelup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEFD263B1E9AF24D00C6A1C2 /* levelup.mp3 */; };
 		CEFD26571E9AF24D00C6A1C2 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFD263E1E9AF24D00C6A1C2 /* blue.png */; };
 		CEFD26581E9AF24D00C6A1C2 /* blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFD263F1E9AF24D00C6A1C2 /* blue@2x.png */; };
 		CEFD26591E9AF24D00C6A1C2 /* orange.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFD26401E9AF24D00C6A1C2 /* orange.png */; };
@@ -43,7 +39,6 @@
 		CEFD265F1E9AF24D00C6A1C2 /* teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFD26461E9AF24D00C6A1C2 /* teal.png */; };
 		CEFD26601E9AF24D00C6A1C2 /* teal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFD26471E9AF24D00C6A1C2 /* teal@2x.png */; };
 		CEFD26611E9AF24D00C6A1C2 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFD26481E9AF24D00C6A1C2 /* yellow.png */; };
-		CEFD26621E9AF31B00C6A1C2 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEFD263C1E9AF24D00C6A1C2 /* theme.mp3 */; };
 		CEFD26661EAE387800C6A1C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFD26651EAE387800C6A1C2 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -91,11 +86,6 @@
 		CEFD26321E9AF24D00C6A1C2 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		CEFD26331E9AF24D00C6A1C2 /* gameboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameboard.png; sourceTree = "<group>"; };
 		CEFD26341E9AF24D00C6A1C2 /* gameboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gameboard@2x.png"; sourceTree = "<group>"; };
-		CEFD26381E9AF24D00C6A1C2 /* bomb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bomb.mp3; sourceTree = "<group>"; };
-		CEFD26391E9AF24D00C6A1C2 /* drop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drop.mp3; sourceTree = "<group>"; };
-		CEFD263A1E9AF24D00C6A1C2 /* gameover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameover.mp3; sourceTree = "<group>"; };
-		CEFD263B1E9AF24D00C6A1C2 /* levelup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = levelup.mp3; sourceTree = "<group>"; };
-		CEFD263C1E9AF24D00C6A1C2 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
 		CEFD263E1E9AF24D00C6A1C2 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
 		CEFD263F1E9AF24D00C6A1C2 /* blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue@2x.png"; sourceTree = "<group>"; };
 		CEFD26401E9AF24D00C6A1C2 /* orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange.png; sourceTree = "<group>"; };
@@ -209,7 +199,6 @@
 				CEFD262F1E9AF24D00C6A1C2 /* icon-60pt.png */,
 				CE463E0F1EB62331006B4A96 /* Fonts */,
 				CEFD26301E9AF24D00C6A1C2 /* Images */,
-				CEFD26371E9AF24D00C6A1C2 /* Sounds */,
 				CEFD263D1E9AF24D00C6A1C2 /* Sprites */,
 			);
 			path = Blocs;
@@ -224,18 +213,6 @@
 				CEFD26341E9AF24D00C6A1C2 /* gameboard@2x.png */,
 			);
 			path = Images;
-			sourceTree = "<group>";
-		};
-		CEFD26371E9AF24D00C6A1C2 /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				CEFD26381E9AF24D00C6A1C2 /* bomb.mp3 */,
-				CEFD26391E9AF24D00C6A1C2 /* drop.mp3 */,
-				CEFD263A1E9AF24D00C6A1C2 /* gameover.mp3 */,
-				CEFD263B1E9AF24D00C6A1C2 /* levelup.mp3 */,
-				CEFD263C1E9AF24D00C6A1C2 /* theme.mp3 */,
-			);
-			path = Sounds;
 			sourceTree = "<group>";
 		};
 		CEFD263D1E9AF24D00C6A1C2 /* Sprites */ = {
@@ -364,7 +341,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEFD26541E9AF24D00C6A1C2 /* gameover.mp3 in Resources */,
 				CEFD26611E9AF24D00C6A1C2 /* yellow.png in Resources */,
 				CE463E101EB62471006B4A96 /* Nokian.ttf in Resources */,
 				CEFD264F1E9AF24D00C6A1C2 /* gameboard@2x.png in Resources */,
@@ -372,14 +348,10 @@
 				CEFD26491E9AF24D00C6A1C2 /* icon-29pt.png in Resources */,
 				CEFD265D1E9AF24D00C6A1C2 /* red.png in Resources */,
 				CEFD26661EAE387800C6A1C2 /* Main.storyboard in Resources */,
-				CEFD26521E9AF24D00C6A1C2 /* bomb.mp3 in Resources */,
 				CEFD265F1E9AF24D00C6A1C2 /* teal.png in Resources */,
-				CEFD26621E9AF31B00C6A1C2 /* theme.mp3 in Resources */,
-				CEFD26531E9AF24D00C6A1C2 /* drop.mp3 in Resources */,
 				CEFD264C1E9AF24D00C6A1C2 /* background.png in Resources */,
 				CEFD264E1E9AF24D00C6A1C2 /* gameboard.png in Resources */,
 				CEFD26601E9AF24D00C6A1C2 /* teal@2x.png in Resources */,
-				CEFD26551E9AF24D00C6A1C2 /* levelup.mp3 in Resources */,
 				CEFD265E1E9AF24D00C6A1C2 /* red@2x.png in Resources */,
 				CEFD265C1E9AF24D00C6A1C2 /* purple@2x.png in Resources */,
 				CEFD26591E9AF24D00C6A1C2 /* orange.png in Resources */,
